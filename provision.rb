@@ -11,5 +11,7 @@ Dir.exist?(assembly_line) or raise 'assembly line doesn\'t exist'
 
 puts "Provisioning #{assembly_line_name} on #{ssh}..."
 
-system("rsync -avzP #{assembly_line}/files #{ssh}:~/tmp")
-system("ssh #{ssh} bash -s < #{assembly_line}/provision.sh")
+output = "rsync -avzP #{assembly_line}/files #{ssh}:~/tmp;"\
+         "ssh #{ssh} bash -s < #{assembly_line}/provision.sh"
+
+system(output)
