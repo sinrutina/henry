@@ -20,7 +20,8 @@ rendered = render("#{assembly_line}/provision.sh.erb",binding)
 FileUtils.mkdir_p('./compiled')
 File.open('./compiled/provision.sh','w') { |f| f.write(rendered) }
 
-output = "rsync -avzP #{assembly_line}/files #{ssh}:~/tmp;"\
+output = "echo \"Copying temp files...\";"\
+         "rsync -avzP #{assembly_line}/files #{ssh}:~/tmp > /dev/null;"\
          "ssh #{ssh} bash -s < ./compiled/provision.sh"
 
 puts "Provisioning #{assembly_line_name} on #{ssh}..."
