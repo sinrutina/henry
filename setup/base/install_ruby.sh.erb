@@ -1,0 +1,17 @@
+echo "Installing ruby dependencies..."
+sudo apt-get -y install git build-essential libssl-dev libyaml-dev libreadline-dev openssl curl git-core zlib1g-dev bison libxml2-dev libxslt1-dev libcurl4-openssl-dev libsqlite3-dev sqlite3 imagemagick >/dev/null 2>&1
+
+git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+
+source ~/.bashrc
+
+echo "Building Ruby..."
+rbenv install 2.1.5
+rbenv global 2.1.5
+
+echo 'source ~/.bashrc' >> ~/.bash_profile
+echo "alias sudo='sudo env PATH=$PATH'" >> .bash_aliases
