@@ -2,10 +2,14 @@ require 'dotenv'
 
 Dotenv.load
 
-username = ENV['USERNAME']
-hosto = ENV['HOST']
+assembly_line_name = ARGV[0] or raise 'you must describe an assembly line'
+ssh = ARGV[1] or raise 'you must describe a server to assemble'
 
-ssh = "#{username}@#{host}"
+assembly_line = "./setup/#{assembly_line_name}"
 
-system("rsync -avzP ./setup/files #{ssh}:~/tmp")
-system("ssh #{ssh} bash -s < ./setup/provision.sh")
+Dir.exist?(assembly_line) or raise 'assembly line doesn\'t exist'
+
+puts "Provisioning #{assembly_line_name} on #{ssh}..."
+
+system("rsync -avzP #{assembly_line}/files #{ssh}:~/tmp")
+system("ssh #{ssh} bash -s < #{assembly_line}/provision.sh")
