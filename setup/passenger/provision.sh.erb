@@ -9,8 +9,9 @@ apt-get install -y apt-transport-https ca-certificates > /dev/null 2>&1
 
 sh -c 'echo deb https://oss-binaries.phusionpassenger.com/apt/passenger trusty main > /etc/apt/sources.list.d/passenger.list'
 
-apt-get update
+apt-get update > /dev/null 2>&1
 
+echo "Installing passenger..."
 apt-get install -y nginx-extras passenger > /dev/null 2>&1
 
 <%= render './setup/base/remove_temp_files.sh.erb' %>
