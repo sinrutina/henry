@@ -4,6 +4,8 @@ A Ruby script for provisioning a server in honor to Henry Ford.
 
 It's like the assembly line manufacturing process but for virtual servers.
 
+![Assembly Line](http://i.imgur.com/5Ja7hW9.jpg)
+
 ## Why
 
 * I don't like Chef, it's too complex.
