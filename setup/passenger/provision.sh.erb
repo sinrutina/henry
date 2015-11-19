@@ -15,7 +15,9 @@ apt-get update > /dev/null 2>&1
 echo "Installing passenger..."
 apt-get install -y nginx-extras passenger > /dev/null 2>&1
 
+cp ~/tmp/files/app.conf /etc/nginx/sites-enabled
 
-
+mkdir /var/www
+chown <%= user %> -R /var/www
 
 <%= render './setup/base/remove_temp_files.sh.erb' %>

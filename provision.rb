@@ -37,6 +37,8 @@ end
 
 assembly_line_name = ARGV[0] or raise 'you must describe an assembly line'
 ssh = ARGV[1] or raise 'you must describe a server to assemble'
+
+user = ssh.split('@')[0]
 server_name = ssh.split('@')[1]
 
 assembly_line = "./setup/#{assembly_line_name}"
