@@ -3,6 +3,7 @@
 
 
 <%= render './setup/base/install_ruby.sh.erb' %>
+<%= render './setup/base/install_node.sh.erb' %>
 
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 561F9B9CAC40B2F7
 apt-get install -y apt-transport-https ca-certificates > /dev/null 2>&1
