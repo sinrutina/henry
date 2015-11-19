@@ -3,8 +3,8 @@
 <%= render './setup/base/upgrade_system.sh.erb' %>
 
 echo "Installing redis..."
-sudo apt-get -y install redis-server >/dev/null 2>&1
-sudo cp ~/tmp/files/redis.conf /etc/redis/redis.conf
-sudo service redis-server restart
+apt-get -y install redis-server >/dev/null 2>&1
+cp ~/tmp/files/redis.conf /etc/redis/redis.conf
+service redis-server restart
 
 <%= render './setup/base/remove_temp_files.sh.erb' %>

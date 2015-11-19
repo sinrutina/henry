@@ -22,7 +22,7 @@ File.open('./compiled/provision.sh','w') { |f| f.write(rendered) }
 
 output = "echo \"Copying temp files...\";"\
          "rsync -avzP #{assembly_line}/files #{ssh}:~/tmp > /dev/null;"\
-         "ssh #{ssh} bash -s < ./compiled/provision.sh"
+         "ssh #{ssh} sudo bash -s < ./compiled/provision.sh"
 
 puts "Provisioning #{assembly_line_name} on #{ssh}..."
 system(output)

@@ -1,17 +1,16 @@
 echo "Installing ruby dependencies..."
-sudo apt-get -y install git build-essential libssl-dev libyaml-dev libreadline-dev openssl curl git-core zlib1g-dev bison libxml2-dev libxslt1-dev libcurl4-openssl-dev libsqlite3-dev sqlite3 imagemagick >/dev/null 2>&1
+apt-get -y install git build-essential libssl-dev libyaml-dev libreadline-dev openssl curl git-core zlib1g-dev bison libxml2-dev libxslt1-dev libcurl4-openssl-dev libsqlite3-dev sqlite3 imagemagick >/dev/null 2>&1
 
-git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
-git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+git clone git://github.com/sstephenson/rbenv.git /usr/local/rbenv
+echo 'export RBENV_ROOT="/usr/local/rbenv"' >> /etc/profile.d/rbenv.sh
+echo 'export PATH="$RBENV_ROOT/bin:$PATH"' >> /etc/profile.d/rbenv.sh
+echo 'eval "$(rbenv init -)"' >> /etc/profile.d/rbenv.sh
+chmod +x /etc/profile.d/rbenv.sh
+source /etc/profile.d/rbenv.sh
 
-echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+git clone git://github.com/sstephenson/ruby-build.git /usr/local/rbenv/plugins/ruby-build
 
-source ~/.bashrc
-
-echo "Building Ruby..."
+echo "Compiling Ruby. Grab some coffee, this will take a while..."
 rbenv install 2.1.5
 rbenv global 2.1.5
-
-echo 'source ~/.bashrc' >> ~/.bash_profile
-echo "alias sudo='sudo env PATH=$PATH'" >> .bash_aliases
+rbenv rehash
