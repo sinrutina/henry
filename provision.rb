@@ -50,4 +50,4 @@ output = "echo \"Copying temp files...\";"\
          "ssh #{ssh} sudo bash -s < ./compiled/provision.sh"
 
 puts "Provisioning #{assembly_line_name} on #{ssh}..."
-#system(output)
+system(output)
