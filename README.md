@@ -18,19 +18,19 @@ It's like the assembly line manufacturing process but for virtual servers.
 Until I develop a cli command, the current usage is ruby
 
 ```bash
- $ ruby assembly-line user@server
+ $ ruby henry.rb assembly-line user@server
 ```
 
 For example to install mongodb:
 
 ```bash
-$ ruby mongodb ubuntu@192.168.33.10
+$ ruby henry.rb mongodb ubuntu@192.168.33.10
 ```
 
 To install ruby with passenger server and nginx
 
 ```bash
- $ ruby passenger ubuntu@192.168.33.10
+ $ ruby henry.rb passenger ubuntu@192.168.33.10
 ```
 
 ## Assembly lines
@@ -51,7 +51,7 @@ Just run:
 
 ```bash
 $ vagrant up
-$ ruby passenger ubuntu@192.168.33.10
+$ ruby henry.rb passenger vagrant@192.168.33.10
 ```
 
 Test it and then.

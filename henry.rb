@@ -20,8 +20,8 @@ def compile_conf_files(assembly_line, context=nil)
 end
 
 def compile_main_script(assembly_line, context=nil)
-  rendered = render("#{assembly_line}/provision.sh.erb",context)
-  File.open('./compiled/provision.sh','w') { |f| f.write(rendered) }
+  rendered = render("#{assembly_line}/assembly.sh.erb",context)
+  File.open('./compiled/assembly.sh','w') { |f| f.write(rendered) }
 end
 
 def create_compiled_folder
@@ -49,7 +49,7 @@ compile_files(assembly_line,binding)
 
 output = "echo \"Copying temp files...\";"\
          "rsync -avzP compiled/files #{ssh}:~/tmp > /dev/null;"\
-         "ssh #{ssh} sudo bash -s < ./compiled/provision.sh"
+         "ssh #{ssh} sudo bash -s < ./compiled/assembly.sh"
 
 puts "Provisioning #{assembly_line_name} on #{ssh}..."
-#system(output)
+system(output)
