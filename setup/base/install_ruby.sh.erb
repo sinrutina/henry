@@ -11,8 +11,12 @@ source /etc/profile.d/rbenv.sh
 git clone git://github.com/sstephenson/ruby-build.git /usr/local/rbenv/plugins/ruby-build
 
 echo "Compiling Ruby. Grab some coffee, this will take a while..."
+
 rbenv install 2.1.5
 rbenv global 2.1.5
-rbenv rehash
+
+ln -f -s -T /usr/local/rbenv/shims/gem /usr/bin/gem
+ln -f -s -T /usr/local/rbenv/shims/ruby /usr/bin/ruby
 
 gem install bundler --no-rdoc --no-ri
+rbenv rehash
