@@ -10,7 +10,7 @@ apt-get install -y apt-transport-https ca-certificates > /dev/null 2>&1
 sh -c 'echo deb https://oss-binaries.phusionpassenger.com/apt/passenger trusty main > /etc/apt/sources.list.d/passenger.list'
 
 apt-get update > /dev/null 2>&1
-apt-get install -y nginx-extras passenger > /dev/null 2>&1
+apt-get install -y nginx nginx-extras passenger > /dev/null 2>&1
 
 echo "Configuring nginx..."
 cp ~/tmp/files/app.conf /etc/nginx/sites-enabled

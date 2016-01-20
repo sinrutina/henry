@@ -49,7 +49,7 @@ compile_files(assembly_line,binding)
 
 output = "echo \"Copying temp files...\";"\
          "rsync -avzP compiled/files #{ssh}:~/tmp > /dev/null;"\
-         "ssh #{ssh} sudo bash -s < ./compiled/assembly.sh"
+         "ssh -A #{ssh} sudo bash -s < ./compiled/assembly.sh"
 
 puts "Provisioning #{assembly_line_name} on #{ssh}..."
 system(output)
