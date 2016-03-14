@@ -1,8 +1,5 @@
 require 'erb'
-require 'dotenv'
 require 'fileutils'
-
-Dotenv.load
 
 def render(path,context=nil)
   ERB.new(File.read(path)).result(context)
@@ -48,7 +45,7 @@ Dir.exist?(assembly_line) or raise 'assembly line doesn\'t exist'
 compile_files(assembly_line,binding)
 
 output = "echo \"Copying temp files...\";"\
-         "rsync -avzP compiled/files #{ssh}:~/tmp > /dev/null;"\
+         "scp compiled/files/* #{ssh}:~/tmp > /dev/null;"\
          "ssh #{ssh} sudo bash -s < ./compiled/assembly.sh"
 
 puts "Provisioning #{assembly_line_name} on #{ssh}..."
