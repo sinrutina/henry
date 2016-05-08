@@ -1,7 +1,7 @@
 #/bin/bash
 <%= render './setup/base/upgrade_system.sh.erb' %>
-<%= render './setup/base/install_ruby.sh.erb' %>
-<%= render './setup/base/install_node.sh.erb' %>
+<%= render './setup/ruby/assembly.sh.erb' %>
+<%= render './setup/node/assembly.sh.erb' %>
 
 echo "Installing passenger..."
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 561F9B9CAC40B2F7 > /dev/null 2>&1
