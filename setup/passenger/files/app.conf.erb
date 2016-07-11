@@ -1,6 +1,12 @@
 server {
+    listen       80;
+    server_name  <%= server_name %>;
+    return       301 http://www.<%= server_name %>$request_uri;
+}
+
+server {
     listen 80;
-    server_name <%= server_name %>;
+    server_name www.<%= server_name %>;
 
     # Tell Nginx and Passenger where your app's 'public' directory is
     root /var/www/app/public;
