@@ -20,14 +20,14 @@ class Henry
       Dir.foreach(conf_files_dir) do |file_name|
         next if file_name == '.' or file_name == '..'
         rendered = render("#{conf_files_dir}/#{file_name}",context)
-        output_file_name = file_name.gsub('.erb','')
+        output_file_name = file_name
         File.open("./compiled/files/#{output_file_name}",'w') { |f| f.write(rendered) }
       end
     end
   end
 
   def compile_main_script(assembly_line, context=nil)
-    rendered = render("#{assembly_line}/assembly.sh.erb",context)
+    rendered = render("#{assembly_line}/assembly.sh",context)
     File.open('./compiled/assembly.sh','w') { |f| f.write(rendered) }
   end
 
