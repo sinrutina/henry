@@ -1,0 +1,12 @@
+[Unit]
+Description=SinRutina Webapp Unicorn Application Server
+
+[Service]
+User=<% user %>
+WorkingDirectory=/var/www/sinrutina/current
+ExecStart=/bin/bash -lc 'env $(cat .env) bundle exec unicorn -c config/unicorn.rb'
+Restart=always
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target

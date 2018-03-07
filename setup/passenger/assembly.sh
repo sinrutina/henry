@@ -1,7 +1,7 @@
 #/bin/bash
-<%= render './setup/base/upgrade_system.sh.erb' %>
-<%= render './setup/ruby/assembly.sh.erb' %>
-<%= render './setup/node/assembly.sh.erb' %>
+<%= render './setup/base/upgrade_system.sh' %>
+<%= render './setup/ruby/assembly.sh' %>
+<%= render './setup/node/assembly.sh' %>
 
 echo "Installing passenger..."
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 561F9B9CAC40B2F7 > /dev/null 2>&1
@@ -19,4 +19,4 @@ cp ~/tmp/files/nginx.conf /etc/nginx/nginx.conf
 mkdir /var/www
 chown <%= user %> -R /var/www
 
-<%= render './setup/base/remove_temp_files.sh.erb' %>
+<%= render './setup/base/remove_temp_files.sh' %>

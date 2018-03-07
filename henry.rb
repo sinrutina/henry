@@ -75,7 +75,7 @@ class Henry
 
     if Dir.exist?('./compiled/files')
       puts 'Copying temp files...'
-      system("scp compiled/files/* #{ssh}:~/tmp > /dev/null;")
+      system("scp -r compiled #{ssh}:~/tmp > /dev/null;")
     end
 
     puts "Provisioning #{assembly_line_name} on #{ssh}..."

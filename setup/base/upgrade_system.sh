@@ -1,3 +1,7 @@
 echo "Upgrading system..."
-apt-get -y update > /dev/null 2>&1
-apt-get -y upgrade > /dev/null 2>&1
+if test $(which yum) 
+then 
+  yum update -y
+else  
+  apt-get -y update && apt-get -y upgrade
+fi

@@ -1,6 +1,10 @@
-apt-get -y update > /dev/null 2>&1
 echo "Installing ruby dependencies..."
-apt-get -y install git build-essential libssl-dev libyaml-dev libreadline-dev openssl curl git-core zlib1g-dev bison libxml2-dev libxslt1-dev libcurl4-openssl-dev libsqlite3-dev sqlite3 imagemagick libpq-dev >/dev/null 2>&1
+if test $(which yum) 
+then 
+  yum install -y git gcc gcc-c++ make automake autoconf readline-devel curl-devel openssl-devel zlib-devel httpd-devel apr-devel apr-util-devel sqlite-devel postgresql-devel libyaml-devel libxml2-devel libxslt1-devel libcurl4-openssl-devel curl
+else  
+  apt-get -y install git build-essential libssl-dev libyaml-dev libreadline-dev openssl curl git-core zlib1g-dev bison libxml2-dev libxslt1-dev libcurl4-openssl-dev libsqlite3-dev sqlite3 imagemagick libpq-dev >/dev/null 2>&1
+fi
 
 git clone git://github.com/sstephenson/rbenv.git /usr/local/rbenv
 echo 'export RBENV_ROOT="/usr/local/rbenv"' >> /etc/profile.d/rbenv.sh
