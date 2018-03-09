@@ -52,8 +52,12 @@ class Henry
         options[:assembly] = a
       end
 
-      opts.on("-h", "--hostname USER@HOSTNAME", "ssh format of user and hostname") do |s|
+      opts.on("-s", "--ssh USER@HOSTNAME", "ssh format of user and hostname") do |s|
         options[:ssh] = s
+      end
+
+      opts.on("-h", "--hostname HOSTNAME", "hostname to be set") do |s|
+        options[:hostname] = s
       end
     end.parse!(args)
 
@@ -66,6 +70,7 @@ class Henry
 
     user = ssh.split('@')[0]
     server_name = ssh.split('@')[1]
+    hostname = @options[:hostname]
 
     assembly_line = "./setup/#{assembly_line_name}"
 

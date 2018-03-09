@@ -1,0 +1,7 @@
+files:
+  - /var/www/sinrutina/current/log/production.log
+  - /var/www/sinrutina/current/log/newrelic_agent.log
+destination:
+  host: logs5.papertrailapp.com
+  port: 41009
+  protocol: tls

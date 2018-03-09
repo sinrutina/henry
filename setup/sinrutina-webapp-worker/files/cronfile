@@ -1,0 +1,1 @@
+*/5 * * * * /bin/bash -l -c 'export PATH="/usr/local/rbenv/bin:$PATH" && eval "$(rbenv init -)" && cd /var/www/cronjobs && ./deliver_events'

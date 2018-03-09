@@ -1,0 +1,4 @@
+#!/bin/bash
+cd /var/www/sinrutina/current
+echo "Running cron - $(date)" >> /var/www/sinrutina/current/log/production.log
+RAILS_ENV=production $(rbenv which bundle) exec rake event_notifications:deliver >> /var/www/sinrutina/current/log/production.log

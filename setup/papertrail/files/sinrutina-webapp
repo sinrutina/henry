@@ -1,0 +1,15 @@
+/var/www/sinrutina/current/log/production.log {
+  size 200M
+  copytruncate
+  rotate 8
+  compress
+  notifempty
+}
+
+/var/www/sinrutina/current/log/newrelic_agent.log {
+  size 200M
+  copytruncate
+  rotate 8
+  compress
+  notifempty
+}
